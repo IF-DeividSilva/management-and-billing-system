@@ -1,7 +1,27 @@
+import { useContext } from "react";
+import { Vendas_contexto } from "../context/Vendas_contexto";
+import  Dynamic_table  from "../components/Dynamic_table";
+
 function Faturamento (){
+    // puxa os dados do contexto
+    const { vendas, carregando, erro } = useContext(Vendas_contexto);
+    
+    // verifica se os dados estão sendo carregados ou se ocorreu um erro
+    if (carregando){
+        return <p>Carregando...</p>;
+    } 
+    if (erro) {  
+        return <p>Erro: {erro}</p>;
+    }
+    
+    // só debug...
+    //console.log(vendas[0])
+
+    // retorna a tabela dinâmica com vendas
     return(
-        <h1>"Faturamento" Is working</h1>
+        <Dynamic_table data={vendas}  titulos={["ID", "Data", "Total de Itens", "Valor Total", "Itens"]} itens = {["idPedido", "data", "totalItensPedido", "valorTotalPedido"]} />
     );
+    
 }
 
 export default Faturamento;

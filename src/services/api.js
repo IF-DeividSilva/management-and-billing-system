@@ -6,7 +6,10 @@ export const api = {
   // não precisa de método, headers ou body (só leitura)
   get: (endpoint) => {
     return fetch(`${BASE_URL}${endpoint}`)
-      .then(response => response.json());
+      .then(response => {
+        if (!response.ok) throw new Error(`Erro ${response.status}: ${response.statusText}`);
+        return response.json();
+      });
   },
 
   // POST para novos produtos
@@ -17,7 +20,10 @@ export const api = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
-    }).then(response => response.json());
+    }).then(response => {
+      if (!response.ok) throw new Error(`Erro ${response.status}: ${response.statusText}`);
+      return response.json();
+    });
   },
 
   // PUT editar produtos
@@ -28,7 +34,10 @@ export const api = {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data)
-    }).then(response => response.json());
+    }).then(response => {
+      if (!response.ok) throw new Error(`Erro ${response.status}: ${response.statusText}`);
+      return response.json();
+    });
   },
 
   // DELETE para remover produtos
@@ -37,6 +46,11 @@ export const api = {
   delete: (endpoint) => {
     return fetch(`${BASE_URL}${endpoint}`, {
       method: "DELETE"
-    }).then(() => null);
+    }).then(response => {
+      if (!response.ok) throw new Error(`Erro ${response.status}: ${response.statusText}`);
+      return { success: true, message: "Item deletado com sucesso!" };
+    }).catch(erro => {
+      throw new Error(erro.message || "Erro ao deletar");
+    });
   }
 };
