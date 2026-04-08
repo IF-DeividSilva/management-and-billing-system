@@ -1,16 +1,14 @@
-# React + Vite
+# Requisistos
+## Navegação (3 menus fixos)  -> DONE (working)
+    ● Produtos Cadastrados 
+    ● Faturamento 
+    ● Cadastrar Produtos 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Tela: Produtos Cadastrados -> TO DO
+    ● Paginação: Organizar os dados em páginas.  (DONE)
+    ● Ordenação: Permitir ordenar (ASC/DESC) em todas as colunas. 
+    ● Filtro Geral: Um único input de texto que filtra resultados buscando nas colunas Nome e Grupo. 
+    ● Ações de Edição: Ao clicar em Editar (ícone lápis), direcione o usuário à tela de cadastro carregando os dados do produto para edição. 
+    ● Ação de Exclusão: Ao clicar em Excluir (ícone lixeira), realizar a chamada de DELETE e exibir Toast de sucesso. 
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

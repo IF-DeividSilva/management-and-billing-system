@@ -12,11 +12,10 @@ import Footer from './components/Footer';
 import Cadastrar_produtos from './pages/Cadastrar_produtos';
 import Faturamento from './pages/Faturamento';
 import Produtos_cadastrados from './pages/Produtos_cadastrados';
-import { Teste }        from "./components/test_page"; 
+//import { Teste }        from "./components/test_page"; 
 
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
@@ -32,8 +31,7 @@ function App() {
               <Route path="/cadastro" element={<Cadastrar_produtos />} />
               <Route path="/faturamento" element={<Faturamento />} />
             </Routes>
-            {/* teste api*/}
-            <Teste /> 
+
                 
           </Vendas_provider>
         </Grupos_provider>
