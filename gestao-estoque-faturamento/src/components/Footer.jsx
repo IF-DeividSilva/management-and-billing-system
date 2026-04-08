@@ -1,7 +1,18 @@
 function Footer(){
     return(
-        <h1>Footer is ok</h1>
-    );
+      <footer className="footer">
+      <p>© 2026 Sistema de Gestão e Faturamento</p>
+
+      <div>
+        <a href="https://github.com/IF-DeividSilva">GitHub</a>
+        <a href="https://www.linkedin.com/in/deividgalvao/">LinkedIn</a>
+      </div>
+
+      <div>
+        <p>Email: deivid.2002@alunos.utfpr.edu.br</p>
+      </div>
+    </footer>
+  );
 }
 
 export default Footer;

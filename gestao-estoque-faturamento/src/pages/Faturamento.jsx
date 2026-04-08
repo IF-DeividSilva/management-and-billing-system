@@ -1,6 +1,6 @@
-function Faturamento(){
+function Faturamento (){
     return(
-        <h1>Is working</h1>
+        <h1>"Faturamento" Is working</h1>
     );
 }
 
