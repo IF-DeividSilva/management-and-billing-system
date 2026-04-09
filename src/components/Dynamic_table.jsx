@@ -3,7 +3,7 @@ import Ordination from "./Ordination";
 import Deleter from "./Deleter";
 import Filter from "./Filter";
 
-function Dynamic_table({ data, titulos, itens, grupos, onDelete, campos_filtro, onEdit }) {
+function Dynamic_table({ data, titulos, itens, grupos, onDelete, campos_filtro, onEdit, place_holder }) {
     const [pagina_atual, set_pagina_atual] = useState(1);
     const [coluna_ordenacao, set_coluna_ordenacao] = useState(null);
     const [ordem_crescente, set_ordem_crescente] = useState(true);
@@ -99,9 +99,11 @@ function Dynamic_table({ data, titulos, itens, grupos, onDelete, campos_filtro, 
     const produtos_da_pagina = dados_ordenados.slice(inicio, fim);
 
     return (
-        <div>
-            <Filter filtro={filtro} onChange={Handle_filtro} />
-            <table>
+        <div className="container-fluid mt-3">
+            <div className="col-4"> 
+                <Filter filtro={filtro} onChange={Handle_filtro} place_holder={place_holder} />
+            </div>
+            <table  className= "table table-dark table-striped">
                 <Ordination 
                     titulos={[...titulos, ...(onDelete || onEdit ? ['Ações'] : [])]} 
                     itens={itens} 
@@ -130,23 +132,23 @@ function Dynamic_table({ data, titulos, itens, grupos, onDelete, campos_filtro, 
                         </td>
                         ))}
                     {/* exibe botão editar se a prop onEdit foi passada */}
-                    {onEdit && (
-                        <td>
-                        <button onClick={() => onEdit(p)}>  
-                            Editar
-                        </button>
-                        </td>
-                    )}
-                     {/* exibe botão deletar se a prop onDelete foi passada */}
-                    {onDelete && (
-                        <td>
-                            <Deleter 
-                                id={p[itens[0]]} 
-                                confirmacao={Handle_delete}
-                            />
-                        </td>
-                    )}
-                    </tr>
+                    <td>
+                        {onEdit && (
+                            <button type="button" className="btn btn-outline-primary" onClick={() => onEdit(p)}>  
+                                Editar
+                            </button>
+                            
+                        )}
+                        {/* exibe botão deletar se a prop onDelete foi passada */}
+                        {onDelete && (
+                        
+                                <Deleter 
+                                    id={p[itens[0]]} 
+                                    confirmacao={Handle_delete}
+                                />
+                        )}
+                    </td>
+                </tr>
                 ))}
                 </tbody>
             </table>
@@ -155,17 +157,23 @@ function Dynamic_table({ data, titulos, itens, grupos, onDelete, campos_filtro, 
             {/* array para o total de paginas */}
             {/* desabilita o numero da pagina atual (já que já está nela) */}
 
-            <div>
+            <nav>
+            <ul className="pagination justify-content-center mt-3">
                 {Array.from({ length: total_paginas }, (_, i) => i + 1).map(numero => (
+                <li
+                    key={numero}
+                    className={`page-item ${numero === pagina_atual ? 'active' : ''}`}
+                >
                     <button
-                        key={numero}
-                        onClick={() => set_pagina_atual(numero)}
-                        disabled={numero === pagina_atual}
+                    className="page-link"
+                    onClick={() => set_pagina_atual(numero)}
                     >
-                        {numero}
+                    {numero}
                     </button>
-                    ))}
-            </div>
+                </li>
+                ))}
+            </ul>
+            </nav>
         </div>
     );
 }

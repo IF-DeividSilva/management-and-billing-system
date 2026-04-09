@@ -24,6 +24,7 @@ function Faturamento (){
             titulos={["ID", "Data", "Total de Itens", "Valor Total", "Itens"]} 
             itens = {["idPedido", "data", "totalItensPedido", "valorTotalPedido", "itens"]} 
             campos_filtro={["idPedido"]}
+            place_holder="Buscar por número do pedido..."
         />
     );
     

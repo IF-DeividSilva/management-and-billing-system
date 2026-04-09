@@ -32,6 +32,7 @@ function Produtos_cadastrados(){
             itens = {["id", "nome", "idGrupo", "precoVenda", "quantidadeEstoque"]} 
             grupos={grupos}
             campos_filtro={["nome", "idGrupo"]}
+            place_holder="Buscar por nome ou grupo..."
             onEdit={(produto) => navigate("/cadastro", { state: { produto } })}
             onDelete={async (id) => {
                 await api.delete(`/produtos_cadastrados/${id}`);

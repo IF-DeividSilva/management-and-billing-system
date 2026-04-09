@@ -90,56 +90,61 @@ function Cadastrar_produtos() {
     }
   };
 
-  return (
-    <div>
-      <h1>{eh_edicao ? "Editar Produto" : "Cadastrar Produto"}</h1>
+return (
+  <div className="container mt-4">
+    <h1 className="mb-4">{eh_edicao ? "Editar Produto" : "Cadastrar Produto"}</h1>
 
+    <form onSubmit={handleSubmit} className="d-flex flex-column gap-3">
+      
+      <input
+        className="form-control"
+        placeholder="Nome"
+        value={nome}
+        onChange={(e) => set_nome(e.target.value)}
+        style={{ border: erros.nome ? "2px solid red" : "" }}
+      />
 
-      <form onSubmit={handleSubmit}>
-        <input
-          placeholder="Nome"
-          value={nome}
-          onChange={(e) => set_nome(e.target.value)}
-          style={{ border: erros.nome ? "2px solid red" : "" }}
-          
-        />
-        <select
-          value={idGrupo}
-          onChange={(e) => set_idGrupo(e.target.value)}
-          >
+      <select
+        className="form-select"
+        value={idGrupo}
+        onChange={(e) => set_idGrupo(e.target.value)}
+        style={{ border: erros.idGrupo ? "2px solid red" : "" }}
+      >
+        <option value="">Selecione um grupo...</option>
+        {grupos.map(g => (
+          <option key={g.id} value={g.id}>{g.nome}</option>
+        ))}
+      </select>
 
-            <option value="">Selecione um grupo...</option>
-            {grupos.map(g => (
-              <option key={g.id} value={g.id}>  
-                {g.nome}                        
-              </option>
-  ))}
-        </select>
-        <input
-          placeholder="Preço"
-          value={preco}
-          onChange={(e) => set_preco(e.target.value)}
-          style={{ border: erros.preco ? "2px solid red" : "" }}
-          type="number"
-          
-        />
-        <input
-          placeholder="Estoque"
-          value={estoque}
-          onChange={(e) => set_estoque(e.target.value)}
-          style={{ border: erros.estoque ? "2px solid red" : "" }}
-          type="number"
-          
-        />
-        <button type="submit">
+      <input
+        className="form-control"
+        placeholder="Preço"
+        value={preco}
+        onChange={(e) => set_preco(e.target.value)}
+        style={{ border: erros.preco ? "2px solid red" : "" }}
+        type="number"
+      />
+
+      <input
+        className="form-control"
+        placeholder="Estoque"
+        value={estoque}
+        onChange={(e) => set_estoque(e.target.value)}
+        style={{ border: erros.estoque ? "2px solid red" : "" }}
+        type="number"
+      />
+
+      <div className="d-flex gap-2">
+        <button type="submit" className="btn btn-success"> 
           {eh_edicao ? "Salvar alterações" : "Cadastrar"}
         </button>
-        <button type="button" onClick={() => navigate("/")}>
+        <button type="button" className="btn btn-secondary" onClick={() => navigate("/")}>
           Cancelar
         </button>
-      </form>
-    </div>
-  );
-}
+      </div>
 
+    </form>
+  </div>
+);
+}
 export default Cadastrar_produtos;

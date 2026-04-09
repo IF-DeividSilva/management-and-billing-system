@@ -21,28 +21,31 @@ function App() {
 
   return (
     <>
-    {/* usar o toast */}
-    <ToastContainer position="bottom-right" />
-    {/* puxa o componente NavBar */}
-    <Navbar />
-      <Produtos_provider>
-        <Grupos_provider>
-          <Vendas_provider>
+    <div className="d-flex flex-column min-vh-100">
+      {/* usar o toast */}
+      <ToastContainer position="bottom-right" />
+      {/* puxa o componente NavBar */}
+      <Navbar />
+      <div className="flex-grow-1 bg-dark">
+        <Produtos_provider>
+          <Grupos_provider>
+            <Vendas_provider>
 
-            {/* Config as rotas para a navegação*/}
-            <Routes>
-              <Route path="/" element={<Produtos_cadastrados />} />
-              <Route path="/cadastro" element={<Cadastrar_produtos />} />
-              <Route path="/faturamento" element={<Faturamento />} />
-            </Routes>
+              {/* Config as rotas para a navegação*/}
+              <Routes>
+                <Route path="/" element={<Produtos_cadastrados />} />
+                <Route path="/cadastro" element={<Cadastrar_produtos />} />
+                <Route path="/faturamento" element={<Faturamento />} />
+              </Routes>
 
-                
-          </Vendas_provider>
-        </Grupos_provider>
-      </Produtos_provider>
-
-    {/* puxa o componente Footer */}
-    <Footer />
+                  
+            </Vendas_provider>
+          </Grupos_provider>
+        </Produtos_provider>
+      </div>
+      {/* puxa o componente Footer */}
+      <Footer />
+    </div>
     </>
   );
 }
