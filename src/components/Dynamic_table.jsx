@@ -137,8 +137,8 @@ function Dynamic_table({ data, titulos, itens, grupos, onDelete, campos_filtro, 
                         <td>
                             <div className="d-flex align-items-center gap-2">
                                 {onEdit && (
-                                    <button type="button" className="btn btn-outline-primary" onClick={() => onEdit(p)}>  
-                                        Editar
+                                    <button type="button" className="btn btn-outline-primary" aria-label="Editar item" onClick={() => onEdit(p)}>  
+                                       <i className="bi bi-pencil" aria-hidden="true"></i> 
                                     </button>
                                     
                                 )}
