@@ -5,4 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   base: '/management-and-billing-system/',
   plugins: [react()],
+  build: {
+    outDir: 'docs',
+  }
 })
