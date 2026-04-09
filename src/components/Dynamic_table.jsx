@@ -121,14 +121,15 @@ function Dynamic_table({ data, titulos, itens, grupos, onDelete, campos_filtro, 
                                 {/* se for idGrupo troca pelo nome */}
                                 {/* senão exibe o valor normalmente */}
                                 {Array.isArray(p[item])
-                                ? p[item].map(i => (
-                                    <div key={i.idProduto}>
-                                        {i.nomeProduto} — Qtd: {i.quantidadeVendida} — R$ {i.valorProduto}
-                                    </div>
-                                    ))
-                                : item === "idGrupo"
-                                    ? nome_do_grupo(p[item])
-                                    : p[item]
+                                    ? p[item].map((i, index) => (
+                                        <div key={i.idProduto} className={index !== 0 ? 'border-top pt-1 mt-1' : ''}>
+                                            <small>{i.nomeProduto}</small><br/>
+                                            <small className="text-secondary">Qtd: {i.quantidadeVendida} — R$ {i.valorProduto}</small>
+                                        </div>
+                                        ))
+                                    : item === "idGrupo"
+                                        ? nome_do_grupo(p[item])
+                                        : p[item]
                                 }
                             </td>
                             ))}
@@ -160,15 +161,18 @@ function Dynamic_table({ data, titulos, itens, grupos, onDelete, campos_filtro, 
             {/* array para o total de paginas */}
             {/* desabilita o numero da pagina atual (já que já está nela) */}
 
-            <nav>
+            <nav aria-label="Navegação da tabela">
             <ul className="pagination justify-content-center mt-3">
                 {Array.from({ length: total_paginas }, (_, i) => i + 1).map(numero => (
                 <li
                     key={numero}
                     className={`page-item ${numero === pagina_atual ? 'active' : ''}`}
                 >
-                    <button className="page-link"
+                    <button
+                    className="page-link"
                     onClick={() => set_pagina_atual(numero)}
+                    aria-label={`Página ${numero}`}
+                    aria-current={numero === pagina_atual ? 'page' : undefined}
                     >
                     {numero}
                     </button>

@@ -34,7 +34,7 @@ function Deleter({ id, confirmacao, cancelamento }) {
                         <h3>Confirmar Exclusão</h3>
                         <p>Tem certeza que deseja deletar este item?</p>
                         <div className="d-flex align-items-center gap-2">
-                            <button type="button" className="btn btn-outline-danger"
+                            <button type="button" className="btn btn-outline-danger" aria-label="Confirmar exclusão do item"
                                 onClick={handleConfirm}
                                 disabled={deletando}
                             >
