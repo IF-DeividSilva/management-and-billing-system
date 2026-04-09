@@ -1,3 +1,4 @@
+// para fazer o footer da pagina..
 function Footer(){
     return(
       <footer className="footer">

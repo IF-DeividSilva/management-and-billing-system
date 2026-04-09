@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import './App.css'
 import { Routes, Route } from 'react-router-dom'
-
 import { Produtos_provider } from "./context/Produtos_contexto";
 import { Grupos_provider }   from "./context/Grupos_contexto";
 import { Vendas_provider }    from "./context/Vendas_contexto";
@@ -12,6 +11,9 @@ import Footer from './components/Footer';
 import Cadastrar_produtos from './pages/Cadastrar_produtos';
 import Faturamento from './pages/Faturamento';
 import Produtos_cadastrados from './pages/Produtos_cadastrados';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 //import { Teste }        from "./components/test_page"; 
 
 
@@ -19,6 +21,8 @@ function App() {
 
   return (
     <>
+    {/* usar o toast */}
+    <ToastContainer position="bottom-right" />
     {/* puxa o componente NavBar */}
     <Navbar />
       <Produtos_provider>

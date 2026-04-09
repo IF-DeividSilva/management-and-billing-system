@@ -18,8 +18,13 @@ function Faturamento (){
     //console.log(vendas[0])
 
     // retorna a tabela dinâmica com vendas
+    // e o filtro para o imput especificado
     return(
-        <Dynamic_table data={vendas}  titulos={["ID", "Data", "Total de Itens", "Valor Total", "Itens"]} itens = {["idPedido", "data", "totalItensPedido", "valorTotalPedido"]} />
+        <Dynamic_table data={vendas}  
+            titulos={["ID", "Data", "Total de Itens", "Valor Total", "Itens"]} 
+            itens = {["idPedido", "data", "totalItensPedido", "valorTotalPedido", "itens"]} 
+            campos_filtro={["idPedido"]}
+        />
     );
     
 }

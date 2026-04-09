@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+// navbar da pagina com 3 paginas
 function Navbar(){
     return(
         <nav className="navbar">

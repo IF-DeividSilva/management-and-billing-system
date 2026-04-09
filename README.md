@@ -1,21 +1,52 @@
-# Requisistos
-## Navegação (3 menus fixos)  -> DONE (working)
-    ● Produtos Cadastrados 
-    ● Faturamento 
-    ● Cadastrar Produtos 
+#  Sistema de Gestão de Produtos
 
-## Tela: Produtos Cadastrados -> TO DO
-    ● Paginação: Organizar os dados em páginas.  (DONE)
-    ● Ordenação: Permitir ordenar (ASC/DESC) em todas as colunas. (DONE)
-    ● Filtro Geral: Um único input de texto que filtra resultados buscando nas colunas Nome e Grupo. 
-    ● Ações de Edição: Ao clicar em Editar (ícone lápis), direcione o usuário à tela de cadastro carregando os dados do produto para edição. 
-    ● Ação de Exclusão: Ao clicar em Excluir (ícone lixeira), realizar a chamada de DELETE e exibir Toast de sucesso. 
+##  Descrição
+Aplicação web desenvolvida em React para gerenciamento de produtos, incluindo cadastro, listagem e faturamento.
 
+---
 
-## Tela: Faturamento -> TO DO
-    ● Paginação: Organizar os dados em páginas.  (DONE)
-    ● Ordenação: Permitir ordenar (ASC/DESC) em todas as colunas. (DONE)
-    ● Filtro Geral: Um único input de texto que filtra resultados buscando nas colunas Nome e Grupo. 
-    ● Ações de Edição: Ao clicar em Editar (ícone lápis), direcione o usuário à tela de cadastro carregando os dados do produto para edição. 
-    ● Ação de Exclusão: Ao clicar em Excluir (ícone lixeira), realizar a chamada de DELETE e exibir Toast de sucesso. 
+##  Tecnologias
+- React (JavaScript)
+- Bootstrap
+- API REST (My JSON Server)
+- Biblioteca de Toast para feedback
 
+---
+
+## Funcionalidades
+
+###  Navegação
+-  Produtos Cadastrados                             (DONE)
+-  Faturamento                                      (DONE)
+-  Cadastrar Produtos                               (DONE)
+
+---
+
+### Produtos Cadastrados
+- Paginação                                         (DONE)
+- Ordenação (ASC/DESC em todas as colunas)          (DONE)  
+- Filtro por Nome e Grupo                           (DONE)
+- Edição de produtos   (Toast)                      (DONE)
+- Exclusão com feedback (Toast)                     (DONE)
+
+---
+
+### Faturamento
+- Paginação                                         (DONE)
+- Ordenação                                         (DONE) 
+- Filtro                                            (DONE)
+
+---
+
+### Cadastro de Produtos
+- Campos: Nome, Grupo, Preço de Venda, Quantidade   (DONE)
+- Select envia ID do grupo                          (DONE)
+- Validação de campos obrigatórios                  (DONE)
+- Feedback de erro (Toast + destaque)               (DONE)
+- Feedback de sucesso (limpar formulário + Toast)   (DONE)
+
+---
+
+##  Status do Projeto
+Funcionalidades principais concluídas e em funcionamento
+TODO: estilização...
