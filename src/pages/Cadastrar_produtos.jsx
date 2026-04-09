@@ -135,10 +135,10 @@ return (
       />
 
       <div className="d-flex gap-2">
-        <button type="submit" className="btn btn-success"> 
+        <button type="submit" className="btn btn-success me-2"> 
           {eh_edicao ? "Salvar alterações" : "Cadastrar"}
         </button>
-        <button type="button" className="btn btn-secondary" onClick={() => navigate("/")}>
+        <button type="button" className="btn btn-secondary me-2" onClick={() => navigate("/")}>
           Cancelar
         </button>
       </div>

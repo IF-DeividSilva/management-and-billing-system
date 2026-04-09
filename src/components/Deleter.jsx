@@ -34,13 +34,13 @@ function Deleter({ id, confirmacao, cancelamento }) {
                         <h3>Confirmar Exclusão</h3>
                         <p>Tem certeza que deseja deletar este item?</p>
                         <div className="deleter-buttons">
-                            <button type="button" className="btn btn-outline-danger"
+                            <button type="button" className="btn btn-outline-danger me-2 mb-2"
                                 onClick={handleConfirm}
                                 disabled={deletando}
                             >
                                 {deletando ? 'Deletando...' : 'Deletar'}
                             </button>
-                            <button type="button" className="btn btn-outline-secondary"
+                            <button type="button" className="btn btn-outline-secondary me-2"
                                 onClick={() => {
                                     set_confirmando(false);
                                     if (cancelamento) cancelamento();
@@ -53,7 +53,7 @@ function Deleter({ id, confirmacao, cancelamento }) {
                     </div>
                 </div>
             ) : (
-                <button type="button" className="btn btn-outline-danger"
+                <button type="button" className="btn btn-outline-danger me-2"
                     onClick={() => set_confirmando(true)}
                 >
                     Deletar

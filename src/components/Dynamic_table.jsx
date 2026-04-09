@@ -103,56 +103,57 @@ function Dynamic_table({ data, titulos, itens, grupos, onDelete, campos_filtro, 
             <div className="col-4"> 
                 <Filter filtro={filtro} onChange={Handle_filtro} place_holder={place_holder} />
             </div>
-            <table  className= "table table-dark table-striped">
-                <Ordination 
-                    titulos={[...titulos, ...(onDelete || onEdit ? ['Ações'] : [])]} 
-                    itens={itens} 
-                    coluna_ordenacao={coluna_ordenacao} 
-                    ordem_crescente={ordem_crescente} 
-                    Handle_ordenacao={Handle_ordenacao}
-                />
-                <tbody>
-                {produtos_da_pagina.map(p => (
-                    <tr key={p[itens[0]]}>
-                        {itens.map(item => (
-                        <td key={item}>
-                            {/* se for array renderiza os itens linha a linha */}
-                            {/* se for idGrupo troca pelo nome */}
-                            {/* senão exibe o valor normalmente */}
-                            {Array.isArray(p[item])
-                            ? p[item].map(i => (
-                                <div key={i.idProduto}>
-                                    {i.nomeProduto} — Qtd: {i.quantidadeVendida} — R$ {i.valorProduto}
-                                </div>
-                                ))
-                            : item === "idGrupo"
-                                ? nome_do_grupo(p[item])
-                                : p[item]
-                            }
-                        </td>
-                        ))}
-                    {/* exibe botão editar se a prop onEdit foi passada */}
-                    <td>
-                        {onEdit && (
-                            <button type="button" className="btn btn-outline-primary" onClick={() => onEdit(p)}>  
-                                Editar
-                            </button>
+            <div className="table-responsive">
+                <table  className= "table table-dark table-striped">
+                    <Ordination 
+                        titulos={[...titulos, ...(onDelete || onEdit ? ['Ações'] : [])]} 
+                        itens={itens} 
+                        coluna_ordenacao={coluna_ordenacao} 
+                        ordem_crescente={ordem_crescente} 
+                        Handle_ordenacao={Handle_ordenacao}
+                    />
+                    <tbody>
+                    {produtos_da_pagina.map(p => (
+                        <tr key={p[itens[0]]}>
+                            {itens.map(item => (
+                            <td key={item}>
+                                {/* se for array renderiza os itens linha a linha */}
+                                {/* se for idGrupo troca pelo nome */}
+                                {/* senão exibe o valor normalmente */}
+                                {Array.isArray(p[item])
+                                ? p[item].map(i => (
+                                    <div key={i.idProduto}>
+                                        {i.nomeProduto} — Qtd: {i.quantidadeVendida} — R$ {i.valorProduto}
+                                    </div>
+                                    ))
+                                : item === "idGrupo"
+                                    ? nome_do_grupo(p[item])
+                                    : p[item]
+                                }
+                            </td>
+                            ))}
+                        {/* exibe botão editar se a prop onEdit foi passada */}
+                        <td>
+                            {onEdit && (
+                                <button type="button" className="btn btn-outline-primary me-2 mb-2" onClick={() => onEdit(p)}>  
+                                    Editar
+                                </button>
+                                
+                            )}
+                            {/* exibe botão deletar se a prop onDelete foi passada */}
+                            {onDelete && (
                             
-                        )}
-                        {/* exibe botão deletar se a prop onDelete foi passada */}
-                        {onDelete && (
-                        
-                                <Deleter 
-                                    id={p[itens[0]]} 
-                                    confirmacao={Handle_delete}
-                                />
-                        )}
-                    </td>
-                </tr>
-                ))}
-                </tbody>
-            </table>
-
+                                    <Deleter 
+                                        id={p[itens[0]]} 
+                                        confirmacao={Handle_delete}
+                                    />
+                            )}
+                        </td>
+                    </tr>
+                    ))}
+                    </tbody>
+                </table>
+            </div>        
             {/* botões de paginação */}
             {/* array para o total de paginas */}
             {/* desabilita o numero da pagina atual (já que já está nela) */}
@@ -164,8 +165,7 @@ function Dynamic_table({ data, titulos, itens, grupos, onDelete, campos_filtro, 
                     key={numero}
                     className={`page-item ${numero === pagina_atual ? 'active' : ''}`}
                 >
-                    <button
-                    className="page-link"
+                    <button className="page-link"
                     onClick={() => set_pagina_atual(numero)}
                     >
                     {numero}
