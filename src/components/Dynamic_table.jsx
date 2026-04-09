@@ -100,7 +100,7 @@ function Dynamic_table({ data, titulos, itens, grupos, onDelete, campos_filtro, 
 
     return (
         <div className="container-fluid mt-3">
-            <div className="col-4"> 
+            <div className="col-12 col-sm-8 col-md-6 col-lg-4"> 
                 <Filter filtro={filtro} onChange={Handle_filtro} place_holder={place_holder} />
             </div>
             <div className="table-responsive">
@@ -134,20 +134,22 @@ function Dynamic_table({ data, titulos, itens, grupos, onDelete, campos_filtro, 
                             ))}
                         {/* exibe botão editar se a prop onEdit foi passada */}
                         <td>
-                            {onEdit && (
-                                <button type="button" className="btn btn-outline-primary me-2 mb-2" onClick={() => onEdit(p)}>  
-                                    Editar
-                                </button>
+                            <div className="d-flex align-items-center gap-2">
+                                {onEdit && (
+                                    <button type="button" className="btn btn-outline-primary" onClick={() => onEdit(p)}>  
+                                        Editar
+                                    </button>
+                                    
+                                )}
+                                {/* exibe botão deletar se a prop onDelete foi passada */}
+                                {onDelete && (
                                 
-                            )}
-                            {/* exibe botão deletar se a prop onDelete foi passada */}
-                            {onDelete && (
-                            
-                                    <Deleter 
-                                        id={p[itens[0]]} 
-                                        confirmacao={Handle_delete}
-                                    />
-                            )}
+                                        <Deleter 
+                                            id={p[itens[0]]} 
+                                            confirmacao={Handle_delete}
+                                        />
+                                )}
+                            </div>
                         </td>
                     </tr>
                     ))}
